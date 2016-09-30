@@ -27,13 +27,6 @@ import collections
 import argparse
 import sys
 
-def key_is_in_dict(key, d):
-    """
-        key_is_in_dict tests to see if a key is in a dictionary
-        :param key: The key to look for in the dictionary.
-        :param d: The dictionary to search.
-    """
-    return (key in d)
 
 def best_street_address(addr):
     """
@@ -51,9 +44,9 @@ def best_street_address(addr):
             print("Couldn't parse: {a}".format(a=addr), sys.exc_info()[0])
 
     try:
-        if (key_is_in_dict('AddressNumber', parsed_addr) == True and key_is_in_dict('StreetName', parsed_addr) == True):
+        if ('AddressNumber' in parsed_addr and 'StreetName' in parsed_addr):
             return_addr = parsed_addr["AddressNumber"] + "+" + parsed_addr["StreetName"] + "+"
-            if (key_is_in_dict('StreetNamePostType', parsed_addr)):
+            if ('StreetNamePostType' in parsed_addr):
                 return_addr = return_addr + parsed_addr["StreetNamePostType"]
     except:
         print("Error trying to reference keys in parsed_addr:", sys.exc_info()[0])
@@ -126,7 +119,9 @@ def main():
             print("There was a problem with: {address}".format(address=row['Street']), sys.exc_info()[0])
 
     print("Saving...")
-    df.to_csv(args.output, encoding='utf-8') #Pandas dataframe puked when I did not include the encoding
+    #Pandas dataframe puked when I did not include the encoding
+    df.to_csv(args.output, encoding='utf-8')
+    
 
 if __name__ == "__main__":
     main()
