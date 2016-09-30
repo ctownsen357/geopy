@@ -33,10 +33,7 @@ def key_is_in_dict(key, d):
         :param key: The key to look for in the dictionary.
         :param d: The dictionary to search.
     """
-    if (key in d):
-        return True
-    else:
-        return False
+    return (key in d)
 
 def best_street_address(addr):
     """
@@ -77,8 +74,7 @@ def main():
     if ('.csv' not in args.input):
         df = pandas.read_excel(args.input)
     else:
-        df = pandas.read_csv(args.input)
-        
+        df = pandas.read_csv(args.input)       
     # add new target columns to store results in
     df['NewLat'] = 9.99991
     df['NewLon'] = 9.99991
