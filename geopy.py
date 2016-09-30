@@ -121,7 +121,6 @@ def main():
     print("Saving...")
     #Pandas dataframe puked when I did not include the encoding
     df.to_csv(args.output, encoding='utf-8')
-    
 
 if __name__ == "__main__":
     main()
