@@ -14,8 +14,7 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-"""
-    Geocodes data from an Excel file with at least the following columns: State,Street,City,Zip
+"""Geocodes data from an Excel file with at least the following columns: State,Street,City,Zip
     Saves results to CSV appended with Lat,Lon,sent address, returned address
     Eventually loaded onto google maps.
 """
@@ -29,8 +28,7 @@ import sys
 
 
 def best_street_address(addr):
-    """
-        best_street_address parses a US address using usaddress library and returns an street address portion in the best format for calling the google API.
+    """best_street_address parses a US address using usaddress library and returns an street address portion in the best format for calling the google API.
         :param addr: The address string containing at least the street address since that is the target returned.
     """
     return_addr = addr
@@ -54,8 +52,7 @@ def best_street_address(addr):
     return return_addr.replace(" ", "+")
 
 def main():
-    """
-        main loads the Excel file, iterates over the rows and attempts to geocode, finally saves results to CSV file.
+    """main loads the Excel file, iterates over the rows and attempts to geocode, finally saves results to CSV file.
     """
 
     parser = argparse.ArgumentParser(description='Geocoding against the google API')
